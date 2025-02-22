@@ -135,7 +135,7 @@ def get_quant_config(model_config: ModelConfig,
     quant_cls = get_quantization_config(model_config.quantization)
 
     # GGUF doesn't have config file
-    if model_config.quantization == "gguf":
+    if model_config.quantization == "gguf" or model_config.quantization == "torchao":
         return quant_cls.from_config({})
 
     # Read the quantization config from the HF model config, if available.
